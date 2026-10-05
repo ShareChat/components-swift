@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 LiveKit
+ * Copyright 2024 LiveKit
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,11 +17,6 @@
 import LiveKit
 import SwiftUI
 
-#if compiler(>=6.0)
-public extension EnvironmentValues {
-    @Entry var liveKitUIOptions: UIOptions = .init()
-}
-#else
 private struct UIOptionsKey: EnvironmentKey {
     // This is the default value that SwiftUI will fallback to if you don't pass the object
     public static var defaultValue: UIOptions = .init()
@@ -33,7 +28,6 @@ public extension EnvironmentValues {
         set { self[UIOptionsKey.self] = newValue }
     }
 }
-#endif
 
 public struct ComponentsScope<Content: View>: View {
     private let _content: () -> Content

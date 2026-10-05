@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 LiveKit
+ * Copyright 2024 LiveKit
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ import LiveKit
 import SwiftUI
 
 /// Subclass to customize default components UI.
-open class UIOptions {
+open class UIOptions: ObservableObject {
     // MARK: - Types
 
     public enum TextFieldType {
@@ -36,13 +36,6 @@ open class UIOptions {
     open var participantViewSpacing: CGFloat { 8 }
 
     public init() {}
-
-    /// Placeholder view when no track is enabled.
-    open func noTrackView() -> AnyView {
-        AnyView(
-            EmptyView()
-        )
-    }
 
     /// Placeholder view when the video is disabled or not available.
     open func videoDisabledView(geometry: GeometryProxy) -> AnyView {
